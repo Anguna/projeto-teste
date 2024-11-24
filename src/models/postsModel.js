@@ -6,3 +6,9 @@ export default async function getTodosPosts() { // Define uma função assíncro
     const colecao = db.collection("posts"); // Seleciona a coleção "posts" dentro do banco de dados.
     return colecao.find().toArray(); // Busca todos os documentos da coleção e retorna um array.
   }
+
+  export async function criarPost(novoPost) {
+    const db = conexao.db("imersao-instabytes"); 
+    const colecao = db.collection("posts"); 
+    return colecao.insertOne(novoPost); 
+  }
